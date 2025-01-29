@@ -1,10 +1,14 @@
+# ChatPromptTemplate
+
 import os
+from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI
 from langchain.prompts import ChatPromptTemplate, HumanMessagePromptTemplate
 from langchain_core.messages import SystemMessage, HumanMessage, AIMessage
 
 
-os.environ['OPENAI_API_KEY'] = 'SUA CHAVE DE API'
+load_dotenv()
+os.environ['OPENAI_API_KEY'] = os.getenv('OPENAI_API_KEY')
 
 model = ChatOpenAI(model='gpt-3.5-turbo')
 

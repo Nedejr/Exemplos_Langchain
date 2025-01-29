@@ -1,10 +1,13 @@
+# Router Chains
+
 import os
+from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI
 from langchain.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 
-
-os.environ['OPENAI_API_KEY'] = 'SUA CHAVE DE API'
+load_dotenv()
+os.environ['OPENAI_API_KEY'] = os.getenv('OPENAI_API_KEY')
 
 model = ChatOpenAI(model='gpt-3.5-turbo')
 
@@ -73,7 +76,7 @@ def route(classification):
         return other_info_chain
 
 
-pergunta = input('Qual a sua pergunta?')
+pergunta = input('Qual a sua pergunta? : ')
 
 classification = classification_chain.invoke(
     {'pergunta': pergunta}

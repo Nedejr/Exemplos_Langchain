@@ -1,3 +1,5 @@
+# Loaders (txt, pdf, csv)
+
 import os
 from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI
@@ -8,7 +10,6 @@ from langchain_community.document_loaders import TextLoader, PyPDFLoader, CSVLoa
 load_dotenv()
 
 os.environ['OPENAI_API_KEY'] = os.getenv('OPENAI_API_KEY')
-
 model = ChatOpenAI(model='gpt-3.5-turbo')
 
 loader = TextLoader('base_conhecimento.txt')
